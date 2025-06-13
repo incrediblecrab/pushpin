@@ -1,0 +1,115 @@
+{
+  "name": "pushpin",
+  "displayName": "Pushpin",
+  "description": "Pin files and folders for quick access in VS Code",
+  "version": "1.0.0",
+  "publisher": "maxs-lab-of-things",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "pin",
+    "bookmark",
+    "favorites",
+    "quick access",
+    "file management",
+    "productivity",
+    "explorer"
+  ],
+  "icon": "icon.png",
+  "galleryBanner": {
+    "color": "#1e1e1e",
+    "theme": "dark"
+  },
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "pushpin.pinItem",
+        "title": "Pin This",
+        "icon": "./icons/pin.svg"
+      },
+      {
+        "command": "pushpin.unpinItem",
+        "title": "Remove Pin",
+        "icon": "./icons/unpin.svg"
+      },
+      {
+        "command": "pushpin.unpinAll",
+        "title": "Clear All Pins",
+        "icon": "./icons/trash.svg"
+      },
+      {
+        "command": "pushpin.openPinnedItem",
+        "title": "Open"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "pushpin.pinItem",
+          "group": "navigation@1",
+          "when": "!pushpin.isPinned"
+        },
+        {
+          "command": "pushpin.unpinItem",
+          "group": "navigation@1", 
+          "when": "pushpin.isPinned"
+        },
+        {
+          "command": "pushpin.unpinAll",
+          "group": "navigation@2",
+          "when": "pushpin.hasPinnedItems"
+        }
+      ],
+      "view/title": [
+        {
+          "command": "pushpin.unpinAll",
+          "when": "view == pushpinView",
+          "group": "navigation"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "pushpin.unpinItem",
+          "when": "view == pushpinView",
+          "group": "inline"
+        }
+      ]
+    },
+    "views": {
+      "explorer": [
+        {
+          "id": "pushpinView",
+          "name": "Pinned Items"
+        }
+      ]
+    },
+    "viewsWelcome": [
+      {
+        "view": "pushpinView",
+        "contents": "No pinned items yet.\n[Pin a file or folder](command:workbench.view.explorer) by right-clicking in the Explorer."
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package",
+    "publish": "vsce publish"
+  },
+  "devDependencies": {
+    "@types/node": "16.x",
+    "@types/vscode": "^1.74.0",
+    "typescript": "^4.9.4",
+    "@vscode/vsce": "^2.22.0"
+  }
+}
