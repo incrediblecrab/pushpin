@@ -31,12 +31,9 @@ A VS Code extension that lets you pin files and folders for quick access.
 
 - VS Code 1.74.0 or higher
 
-## Development
+## Author
 
-```bash
-npm install
-npm run compile
-```
+Max Marquardt | [mlot.ai](https://mlot.ai)
 
 ## License
 
