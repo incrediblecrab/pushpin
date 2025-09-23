@@ -1,6 +1,11 @@
 # Pushpin
 
+![Version](https://img.shields.io/visual-studio-marketplace/v/maxs-lab-of-things.pushpin)
+![MLoT](https://img.shields.io/badge/MLoT-ai-blue)
+
 A VS Code extension that lets you pin files and folders for quick access.
+
+![Demo](https://raw.githubusercontent.com/incrediblecrab/Packages-and-Extensions-Media/main/pushpin.gif)
 
 ## Features
 
@@ -31,9 +36,16 @@ A VS Code extension that lets you pin files and folders for quick access.
 
 - VS Code 1.74.0 or higher
 
-## Author
+## Resources
 
-Max Marquardt | [mlot.ai](https://mlot.ai)
+- 📺 [Watch Demo Video](https://youtu.be/LwNM0DSFKFU)
+- 🌐 [Visit MLoT Page](https://mlot.ai/pushpin/)
+- 🔒 [Privacy Policy](https://mlot.ai/privacy)
+
+## Publisher
+
+**Max's Lab of Things**
+Visit [mlot.ai](https://mlot.ai/)
 
 ## License
 
