@@ -5,7 +5,7 @@
 
 A VS Code extension that lets you pin files and folders for quick access.
 
-![Demo](https://raw.githubusercontent.com/incrediblecrab/Packages-and-Extensions-Media/main/gifs/pushpin.gif)
+![Demo](https://raw.githubusercontent.com/incrediblecrab/mlot-developer-media/main/gifs/pushpin.gif)
 
 ## Features
 
