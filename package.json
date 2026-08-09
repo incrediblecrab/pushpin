@@ -2,7 +2,7 @@
   "name": "pushpin",
   "displayName": "Pushpin",
   "description": "Pin files and folders for quick access in VS Code",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "publisher": "maxs-lab-of-things",
   "author": {
     "name": "Max Marquardt",
