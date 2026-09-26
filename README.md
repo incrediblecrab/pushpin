@@ -1,52 +1,65 @@
-# Pushpin
+# pushpin
 
-![Version](https://img.shields.io/visual-studio-marketplace/v/maxs-lab-of-things.pushpin)
-![MLoT](https://img.shields.io/badge/MLoT-ai-blue)
+![Version](https://img.shields.io/visual-studio-marketplace/v/maxs-lab-of-things.pushpin) ![MLoT](https://img.shields.io/badge/MLoT-ai-blue)
 
-A VS Code extension that lets you pin files and folders for quick access.
+Pushpin is a VS Code extension that adds a "Pinned Items" Explorer view for quick access to selected files and folders. It is published on the [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=maxs-lab-of-things.pushpin) as `maxs-lab-of-things.pushpin`; the published version is 1.5.1, matching this repository.
 
 ![Demo](https://raw.githubusercontent.com/incrediblecrab/mlot-developer-media/main/gifs/pushpin.gif)
 
-## Features
+**Objective:** keep frequently used workspace paths visible without moving files, changing imports or writing project metadata.
 
-- **Right-click to Pin**: Pin any file or folder from the Explorer context menu
-- **Visual Reference Only**: Pinning is purely visual and does not modify file structure or Git status
-- **Pinned Items View**: Dedicated sidebar panel showing all pinned items in descending order (newest first)
-- **Smart Icons**: Files and folders display with appropriate icons
-- **Quick Access**: Click pinned items to open files or reveal folders in Explorer
-- **Unpin Options**: Unpin individual items or unpin all at once
-- **Context Awareness**: Pin/Unpin options dynamically appear based on item state
-- **Persistent**: Pinned items persist across VS Code sessions
+**Inputs:** VS Code 1.74.0 or later. Pinned paths are stored in VS Code workspace state and are shown only while the underlying file or folder still exists.
+
+**Files:**
+
+- [`src/`](src/): the TypeScript extension source, pinned items tree provider and types
+- [`out/`](out/): compiled JavaScript used by the extension entry point
+- [`icons/`](icons/): SVG icons for pin, unpin and clear actions
+- [`package.json`](package.json): extension metadata, commands, view contributions and npm scripts
+- [`CHANGELOG.md`](CHANGELOG.md): release history
+- [`icon.png`](icon.png): Marketplace icon
+- [`tsconfig.json`](tsconfig.json): TypeScript compiler settings
+
+**Try it:** install the published build with `ext install maxs-lab-of-things.pushpin`. For local development, run `npm install`, then `npm run compile`, and launch the extension host from VS Code.
 
 ## Usage
 
-1. **Pin an Item**: Right-click any file or folder in the Explorer and select "Pin This"
-2. **View Pinned Items**: Check the "Pinned Items" panel in the Explorer sidebar
-3. **Open Pinned Items**: Click any pinned item to open it
-4. **Unpin Items**: Right-click a pinned item and select "Remove Pin", or use the "Clear All Pins" button
+Right-click a file or folder in the VS Code Explorer and select "Pin This". The item appears in the "Pinned Items" view, sorted newest first.
+
+Click a pinned file to open it. Click a pinned folder to reveal it in the Explorer. Use "Remove Pin" on an individual item or "Clear All Pins" from the Explorer context menu or Pinned Items view title to remove pins.
+
+Pinning is visual only. The extension stores paths in VS Code workspace state, filters out paths that no longer exist and does not modify the workspace file tree.
 
 ## Commands
 
-- `pushpin.pinItem` - Pin the selected file or folder
-- `pushpin.unpinItem` - Unpin the selected item
-- `pushpin.unpinAll` - Unpin all pinned items
-- `pushpin.openPinnedItem` - Open a pinned item
+| Command | Title | Where it appears |
+| --- | --- | --- |
+| `pushpin.pinItem` | Pin This | Explorer context menu when the current item is not pinned |
+| `pushpin.unpinItem` | Remove Pin | Explorer context menu for pinned items and Pinned Items inline menu |
+| `pushpin.unpinAll` | Clear All Pins | Explorer context menu when pins exist and Pinned Items view title |
+| `pushpin.openPinnedItem` | Open | Pinned item click action |
 
-## Requirements
+## Settings
 
-- VS Code 1.74.0 or higher
+Pushpin does not contribute VS Code settings.
 
-## Resources
+## Development
 
-- 📺 [Watch Demo Video](https://youtu.be/LwNM0DSFKFU)
-- 🌐 [Visit MLoT Page](https://mlot.ai/pushpin/)
-- 🔒 [Privacy Policy](https://mlot.ai/privacy)
+- `npm run compile`: compile TypeScript with `tsc -p ./`
+- `npm run watch`: compile in watch mode
+- `npm run package`: create a VSIX with `vsce package`
+- `npm run publish`: publish with `vsce publish`
 
-## Publisher
+Do not publish from this repository unless the package metadata and Marketplace release are intentionally being updated.
 
-**Max's Lab of Things**
-Visit [mlot.ai](https://mlot.ai/)
+## Links
+
+- [Marketplace listing](https://marketplace.visualstudio.com/items?itemName=maxs-lab-of-things.pushpin)
+- [Demo video](https://youtu.be/LwNM0DSFKFU)
+- [MLoT product page](https://mlot.ai/pushpin/)
+- [Privacy policy](https://mlot.ai/privacy/)
+- Publisher: [Max's Lab of Things](https://mlot.ai/)
 
 ## License
 
-MIT
+MIT. See [`LICENSE`](LICENSE).
